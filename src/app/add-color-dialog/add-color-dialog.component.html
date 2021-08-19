@@ -1,0 +1,25 @@
+<div>
+    <form (ngSubmit)="onSubmit()" #addColor="ngForm">
+        <div class="color" ngModelGroup="addingColor" #addingColor="ngModelGroup">
+            <div class="color">
+                <label style="margin-right: 10px;" for="name">Color Name</label>
+                <input type="text" class="form-control" ngModel name="name" required>
+            </div>
+            <div class="color">
+                <label style="margin-left: 10px;" for="color">Color</label>
+                <input type="text" class="form-control" ngModel name="color" required>
+            </div>
+        </div>
+
+        <div style="display:flex; justify-content:center; ">
+            <div>
+                <button class="btn btn-primary" [disabled]="!addColor.valid" type="submit">Submit</button>
+            </div>
+            <div>
+                <button class="btn btn-primary" (click)="cancel()">cancel</button>
+            </div>
+        </div>
+
+        <p *ngIf="!addColor.valid" style="color: red;">Please fill out all fields before submitting.</p>
+    </form>
+</div>
